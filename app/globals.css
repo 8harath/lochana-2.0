@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #000000;
+  --background: #ffffff;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  min-height: 100vh;
+}
+
+/* Replace the existing paper-texture class with this improved version */
+.paper-texture {
+  background-image: url("/paper-texture.png");
+  background-repeat: repeat;
+  background-size: 500px;
+  position: relative;
+}
+
+.retro-button {
+  position: relative;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border: 2px solid black;
+  box-shadow: 3px 3px 0 0 black;
+  overflow: hidden;
+}
+
+.retro-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px 0 0 black;
+}
+
+.retro-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+.retro-button:hover::after {
+  transform: translateX(0);
+}
+
+.section-title {
+  border-bottom: 2px solid black;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.experience-item,
+.education-item {
+  border-left: 2px solid black;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.experience-item::before,
+.education-item::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: 2px solid black;
+  padding: 0.75rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-width: 3px;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-menu a {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+  }
+}
+
+/* Add loading animation styles */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.loading-dot {
+  width: 12px;
+  height: 12px;
+  background-color: black;
+  border-radius: 50%;
+  margin: 0 6px;
+  animation: loadingPulse 1.5s infinite ease-in-out;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingPulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Page transition animations */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Improve spacing for content sections */
+.content-section {
+  margin-bottom: 3rem;
+  max-width: 100%;
+}
