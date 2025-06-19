@@ -4,7 +4,7 @@ export default function About() {
   return (
     <PageTransition>
       <div className="min-h-screen bg-white paper-texture">
-        <main className="max-w-3xl mx-auto p-6 md:p-8">
+        <main className="max-w-3xl mx-auto p-6 md:p-8 animate-fade-in">
           <h1 className="text-3xl md:text-4xl font-bold mb-8 section-title">About Me</h1>
 
           <div className="content-section">

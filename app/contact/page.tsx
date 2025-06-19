@@ -1,11 +1,10 @@
-import { Button } from "@/components/ui/button"
 import PageTransition from "@/components/page-transition"
 
 export default function Contact() {
   return (
     <PageTransition>
       <div className="min-h-screen bg-white paper-texture">
-        <main className="max-w-3xl mx-auto p-6 md:p-8">
+        <main className="max-w-3xl mx-auto p-6 md:p-8 animate-fade-in">
           <h1 className="text-3xl md:text-4xl font-bold mb-8 section-title">Contact</h1>
 
           <div className="content-section">
@@ -42,12 +41,13 @@ export default function Contact() {
                 <textarea id="message" name="message" rows={5} required className="w-full"></textarea>
               </div>
 
-              <Button
+              <button
                 type="submit"
-                className="retro-button text-lg px-6 py-3 bg-black text-white hover:bg-black/90 font-serif"
+                className="retro-button"
+                aria-label="Submit Contact Form"
               >
                 Submit
-              </Button>
+              </button>
             </form>
           </div>
         </main>
