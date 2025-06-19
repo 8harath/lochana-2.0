@@ -24,7 +24,7 @@ const Navigation = () => {
 
   return (
     <header className="w-full py-3 px-2 md:px-6 bg-white paper-texture border-b border-black/10 relative">
-      <div className="max-w-4xl mx-auto flex items-center justify-between">
+      <div className="max-w-4xl mx-auto flex items-center justify-between min-h-[3.5rem] md:min-h-[4.5rem]">
         {/* Creative Minimal Logo */}
         <div className="flex items-center gap-2 select-none">
           <span className="block w-2 h-2 rounded-full bg-black animate-pulse" aria-hidden="true"></span>
@@ -32,12 +32,12 @@ const Navigation = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-6">
+        <nav className="hidden md:flex gap-4 sm:gap-6">
           {navItems.map((item, idx) => (
             <Link
               key={item.path}
               href={item.path}
-              className={`text-base font-serif transition-all duration-200 px-1 pb-1 relative group ${
+              className={`text-base font-serif transition-all duration-200 px-1 pb-1 relative group whitespace-nowrap ${
                 pathname === item.path
                   ? "font-bold border-b-2 border-black"
                   : "hover:text-black/70 focus-visible:underline"
@@ -70,13 +70,15 @@ const Navigation = () => {
           >
             <X size={24} />
           </button>
-          <nav className="flex flex-col items-center mt-12">
+          <nav className="flex flex-col items-center mt-16 w-full px-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 href={item.path}
-                className={`text-lg font-serif my-2 transition-colors duration-200 ${
-                  pathname === item.path ? "font-bold border-b-2 border-black" : "hover:text-black/70 focus-visible:underline"
+                className={`text-lg font-serif my-2 w-full text-center py-3 rounded transition-colors duration-200 ${
+                  pathname === item.path
+                    ? "font-bold border-b-2 border-black bg-black/5"
+                    : "hover:text-black/70 hover:bg-black/5 focus-visible:underline"
                 }`}
                 onClick={toggleMobileMenu}
                 tabIndex={0}

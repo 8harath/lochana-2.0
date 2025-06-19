@@ -3,14 +3,17 @@ import PageTransition from "@/components/page-transition"
 export default function Projects() {
   return (
     <PageTransition>
-      <div className="min-h-screen bg-white paper-texture">
-        <main className="max-w-3xl mx-auto p-6 md:p-8 animate-fade-in">
+      <div className="min-h-screen bg-white paper-texture relative">
+        <div className="main-bg-accent" aria-hidden="true"></div>
+        <main className="max-w-3xl mx-auto p-6 md:p-8 animate-fade-in relative z-10">
           <h1 className="text-3xl md:text-4xl font-bold mb-8 section-title">Projects</h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="border-2 border-black p-6">
               <h2 className="text-xl font-bold mb-4">Coming Soon: Project Alpha</h2>
             </div>
+
+            <hr className="section-divider md:col-span-2" />
 
             <div className="border-2 border-black p-6">
               <h2 className="text-xl font-bold mb-4">Coming Soon: Exploratory Dashboard</h2>

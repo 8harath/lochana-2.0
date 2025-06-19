@@ -3,6 +3,7 @@ import "./globals.css"
 import { Merriweather } from "next/font/google"
 import Navigation from "@/components/navigation"
 import Loading from "@/components/loading"
+import Footer from "@/components/footer"
 
 const serif = Merriweather({
   weight: ["300", "400", "700"],
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Loading />
         <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   )

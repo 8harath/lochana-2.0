@@ -3,8 +3,9 @@ import PageTransition from "@/components/page-transition"
 export default function About() {
   return (
     <PageTransition>
-      <div className="min-h-screen bg-white paper-texture">
-        <main className="max-w-3xl mx-auto p-6 md:p-8 animate-fade-in">
+      <div className="min-h-screen bg-white paper-texture relative">
+        <div className="main-bg-accent" aria-hidden="true"></div>
+        <main className="max-w-3xl mx-auto p-6 md:p-8 animate-fade-in relative z-10">
           <h1 className="text-3xl md:text-4xl font-bold mb-8 section-title">About Me</h1>
 
           <div className="content-section">
@@ -17,6 +18,8 @@ export default function About() {
             </p>
           </div>
 
+          <hr className="section-divider" />
+
           <div className="content-section">
             <h3 className="text-xl font-bold mb-2">Summary</h3>
             <p className="mb-4">
@@ -24,6 +27,8 @@ export default function About() {
               innovation-driven technology.
             </p>
           </div>
+
+          <hr className="section-divider" />
 
           <div className="content-section">
             <h3 className="text-xl font-bold mb-2">Core Competencies</h3>
@@ -36,10 +41,14 @@ export default function About() {
             </ul>
           </div>
 
+          <hr className="section-divider" />
+
           <div className="content-section">
             <h3 className="text-xl font-bold mb-2">Interests</h3>
             <p className="mb-4">AI, sustainability, software development, analytics, collaborative building</p>
           </div>
+
+          <hr className="section-divider" />
 
           <div className="content-section">
             <h3 className="text-xl font-bold mb-2">Career Objective</h3>
