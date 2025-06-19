@@ -23,22 +23,32 @@ const Navigation = () => {
   }
 
   return (
-    <header className="w-full py-4 px-2 md:px-6 bg-white paper-texture border-b border-black/10">
+    <header className="w-full py-3 px-2 md:px-6 bg-white paper-texture border-b border-black/10 relative">
       <div className="max-w-4xl mx-auto flex items-center justify-between">
+        {/* Creative Minimal Logo */}
+        <div className="flex items-center gap-2 select-none">
+          <span className="block w-2 h-2 rounded-full bg-black animate-pulse" aria-hidden="true"></span>
+          <span className="font-serif text-lg font-bold tracking-tight text-black/80" style={{letterSpacing: '-0.04em'}}>LS</span>
+        </div>
+
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-6">
-          {navItems.map((item) => (
+          {navItems.map((item, idx) => (
             <Link
               key={item.path}
               href={item.path}
-              className={`text-base font-serif transition-colors duration-200 px-1 pb-1 ${
+              className={`text-base font-serif transition-all duration-200 px-1 pb-1 relative group ${
                 pathname === item.path
                   ? "font-bold border-b-2 border-black"
                   : "hover:text-black/70 focus-visible:underline"
               }`}
               tabIndex={0}
             >
-              {item.name}
+              <span className="relative z-10">{item.name}</span>
+              {/* Animated underline for hover, only if not active */}
+              {pathname !== item.path && (
+                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-black/10 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200" />
+              )}
             </Link>
           ))}
         </nav>
@@ -77,6 +87,8 @@ const Navigation = () => {
           </nav>
         </div>
       )}
+      {/* Creative minimal floating dot at bottom right */}
+      <span className="hidden md:block fixed bottom-4 right-6 w-2 h-2 rounded-full bg-black/10 animate-pulse z-50" aria-hidden="true"></span>
     </header>
   )
 }
